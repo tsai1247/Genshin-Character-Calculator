@@ -10,6 +10,18 @@ namespace Genshin_Character_Calculator
     {
     }
 
+    public class DataPath
+    {
+        public const string root = ".\\Data";
+        public const string characterValue = ".\\Data\\Character\\";
+        
+    }
+
+    public class Data
+    {
+        public readonly float[] level_about_health = {5, 6};
+    }
+
     public class FileRW
     {
         const string endl = "\r\n";
@@ -25,7 +37,7 @@ namespace Genshin_Character_Calculator
             }
             catch (Exception)
             {
-                return new string[] { };
+                throw new FileLoadException();
             }
 
         }
