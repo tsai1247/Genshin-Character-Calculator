@@ -42,7 +42,7 @@ namespace Genshin_Character_Calculator
             if (isFold)
             {
                 status.Content = "▶";
-                curFrame.Visibility = Visibility.Hidden;
+                curFrame.Visibility = Visibility.Collapsed;
             }
             else
             {
