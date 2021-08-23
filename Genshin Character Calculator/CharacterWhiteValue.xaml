@@ -13,7 +13,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
     
-    <Grid Background="LightPink">
+    <Grid>
         <WrapPanel Orientation="Vertical">
             <WrapPanel Orientation="Horizontal">
                 <Label Content="角色名稱：" Style="{StaticResource Label_Title}"/>
@@ -31,6 +31,12 @@
                 <Label Content="防禦力：" Style="{StaticResource Label_Title}"/>
                 <TextBox Text="382" Style="{StaticResource TextBox_Input}"/>
 
+            </WrapPanel>
+            
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="副屬性：" Style="{StaticResource Label_Title}"/>
+                <TextBox Text="暴傷" Style="{StaticResource TextBox_Input}"/>
+                <TextBox Text="30%" Style="{StaticResource TextBox_Input}"/>
             </WrapPanel>
 
         </WrapPanel>
