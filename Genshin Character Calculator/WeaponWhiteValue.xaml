@@ -25,7 +25,8 @@
  
             <WrapPanel Orientation="Horizontal">
                 <Label Content="攻擊力：" Style="{StaticResource Label_Title}"/>
-                <TextBox Text="567" Style="{StaticResource TextBox_Input}"/>
+                <TextBox Text="567" Style="{StaticResource TextBox_Input}"
+                         x:Name="atk"/>
             </WrapPanel>
  
             <WrapPanel Orientation="Horizontal">
