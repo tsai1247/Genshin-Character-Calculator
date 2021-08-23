@@ -17,7 +17,7 @@
         
     </UserControl.Resources>
     
-    <Grid Background="LightGray">
+    <Grid>
         <WrapPanel Orientation="Vertical">
             
             <WrapPanel Orientation="Horizontal">
