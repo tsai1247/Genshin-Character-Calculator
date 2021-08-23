@@ -25,11 +25,14 @@
 
             <WrapPanel Orientation="Horizontal">
                 <Label Content="生命上限：" Style="{StaticResource Label_Title}"/>
-                <TextBox Text="20010" Style="{StaticResource TextBox_Input}"/>
+                <TextBox Text="20010" Style="{StaticResource TextBox_Input}"
+                         x:Name="hp"/>
                 <Label Content="攻擊力：" Style="{StaticResource Label_Title}"/>
-                <TextBox Text="567" Style="{StaticResource TextBox_Input}"/>
+                <TextBox Text="567" Style="{StaticResource TextBox_Input}"
+                         x:Name="atk"/>
                 <Label Content="防禦力：" Style="{StaticResource Label_Title}"/>
-                <TextBox Text="382" Style="{StaticResource TextBox_Input}"/>
+                <TextBox Text="382" Style="{StaticResource TextBox_Input}"
+                         x:Name="def"/>
 
             </WrapPanel>
             
