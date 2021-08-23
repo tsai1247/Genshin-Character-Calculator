@@ -16,6 +16,6 @@
     </Window.Resources>
     
     <Grid>
-
+        <Frame x:Name="CharacterWhiteValueFrame"/>
     </Grid>
 </Window>
