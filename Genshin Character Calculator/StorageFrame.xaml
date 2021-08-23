@@ -19,11 +19,11 @@
     
     <Grid>
         <WrapPanel Orientation="Vertical">
-            
-            <WrapPanel Orientation="Horizontal">
-                <Label Content="▶" Style="{StaticResource Label_Title}"
-                       x:Name="status" MouseDown="folder_MouseDown"/>
-                
+
+            <WrapPanel Orientation="Horizontal" MouseDown="folder_MouseDown" Background="Transparent">
+                <Label  Content="▶" Style="{StaticResource Label_Title}"
+                       x:Name="status"/>
+
                 <Label Content="DefaultTitle" Style="{StaticResource Label_Title}"
                        x:Name="title"/>
             </WrapPanel>
