@@ -21,19 +21,33 @@ namespace Genshin_Character_Calculator
     public partial class MainWindow : Window
     {
         #region Frame declaration
-        private readonly StorageFrame characterWhiteValue = new StorageFrame(new CharacterWhiteValue(), "角色");
-        private readonly StorageFrame weaponWhiteValue = new StorageFrame(new WeaponWhiteValue(), "武器");
-        private readonly StorageFrame allRelic = new StorageFrame(new AllRelic(), "聖遺物");
-        private readonly StorageFrame result = new StorageFrame(new Result(), "結果");
+        private CharacterWhiteValue characterWhiteValue = new CharacterWhiteValue();
+        private WeaponWhiteValue weaponWhiteValue       = new WeaponWhiteValue();
+        private AllRelic allRelic                       = new AllRelic();
+        private Result result                           = new Result();
+
+
+        private StorageFrame Storage_characterWhiteValue;
+        private StorageFrame Storage_weaponWhiteValue;
+        private StorageFrame Storage_allRelic;
+        private StorageFrame Storage_result;
         #endregion
 
         public MainWindow()
         {
             InitializeComponent();
-            CharacterWhiteValueFrame.Content = characterWhiteValue;
-            WeaponWhiteValueFrame.Content = weaponWhiteValue;
-            AllRelicFrame.Content = allRelic;
-            ResultFrame.Content = result;
+            #region initalize
+            Storage_characterWhiteValue = new StorageFrame(characterWhiteValue, "角色", true);
+            Storage_weaponWhiteValue = new StorageFrame(weaponWhiteValue, "武器", true);
+            Storage_allRelic = new StorageFrame(allRelic, "聖遺物", true);
+            Storage_result = new StorageFrame(result, "結果");
+
+
+            CharacterWhiteValueFrame.Content = Storage_characterWhiteValue;
+            WeaponWhiteValueFrame.Content = Storage_weaponWhiteValue;
+            AllRelicFrame.Content = Storage_allRelic;
+            ResultFrame.Content = Storage_result;
+            #endregion
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -56,38 +70,53 @@ namespace Genshin_Character_Calculator
             float[] dmg_bonus = {0, 0}; // 傷害加成
             #endregion
 
+            #region initialize
+            //角色攻擊力 + 武器主詞條)*所有攻擊 % +羽毛主詞條 + 所有攻擊副詞條
+            
+            hp = Get(characterWhiteValue.hp);
+            atk = Get(characterWhiteValue.atk) + Get(weaponWhiteValue.atk);
+            def = Get(characterWhiteValue.def);
+            energy_recharge = 100;
+
+            #endregion
             // TODO: calculate
 
             #region Put result in TextBox
-            Result resultList = (Result)(result.curFrame.Content);
 
-            Set(resultList.hp, hp);
-            Set(resultList.atk, atk);
-            Set(resultList.def, def);
-            Set(resultList.elemental_mastery, elemental_mastery);
-            Set(resultList.crit_rate, crit_rate);
-            Set(resultList.crit_dmg, crit_dmg);
-            Set(resultList.healing_bonus, healing_bonus);
-            Set(resultList.energy_recharge, energy_recharge);
-            Set(resultList.dmg_bonus_name0, dmg_bonus_name[0]);
-            Set(resultList.dmg_bonus_name1, dmg_bonus_name[1]);
+            Set(result.hp, hp);
+            Set(result.atk, atk);
+            Set(result.def, def);
+            Set(result.elemental_mastery, elemental_mastery);
+            Set(result.crit_rate, crit_rate, true);
+            Set(result.crit_dmg, crit_dmg, true);
+            Set(result.healing_bonus, healing_bonus, true);
+            Set(result.energy_recharge, energy_recharge, true);
+            Set(result.dmg_bonus_name0, dmg_bonus_name[0]);
+            Set(result.dmg_bonus_name1, dmg_bonus_name[1]);
 
             if (dmg_bonus_name[0] != "")
-                Set(resultList.dmg_bonus0, dmg_bonus[0]);
+                Set(result.dmg_bonus0, dmg_bonus[0], true);
             else
-                resultList.dmg_bonus_panel0.Visibility = Visibility.Collapsed;
+                result.dmg_bonus_panel0.Visibility = Visibility.Collapsed;
             if (dmg_bonus_name[1] != "")
-                Set(resultList.dmg_bonus1, dmg_bonus[1]);
+                Set(result.dmg_bonus1, dmg_bonus[1], true);
             else
-                resultList.dmg_bonus_panel1.Visibility = Visibility.Collapsed;
+                result.dmg_bonus_panel1.Visibility = Visibility.Collapsed;
 
             #endregion
         }
 
-        #region Functions for "Put result in TextBox"
-        private void Set(TextBox tb, float val, bool percent = true)
+        #region Get Function
+        private float Get(TextBox hp)
         {
-            if (percent)
+            return float.Parse(hp.Text);
+        }
+        #endregion
+
+        #region Set Function
+        private void Set(TextBox tb, float val, bool percent = false)
+        {
+            if (!percent)
                 tb.Text = string.Format("{0}", val);
             else
                 tb.Text = string.Format("{0}%", val);
