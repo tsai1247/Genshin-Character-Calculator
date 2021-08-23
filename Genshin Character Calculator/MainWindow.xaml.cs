@@ -20,14 +20,16 @@ namespace Genshin_Character_Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region Frame declaration
-        StorageFrame characterWhiteValue = new StorageFrame(new CharacterWhiteValue(), "角色白值");
+         #region Frame declaration
+        StorageFrame characterWhiteValue = new StorageFrame(new CharacterWhiteValue(), "角色");
+        StorageFrame weaponWhiteValue = new StorageFrame(new WeaponWhiteValue(), "武器");
         #endregion
 
         public MainWindow()
         {
             InitializeComponent();
             CharacterWhiteValueFrame.Content = characterWhiteValue;
+            WeaponWhiteValueFrame.Content = weaponWhiteValue;
         }
     }
 }

@@ -16,6 +16,12 @@
     </Window.Resources>
     
     <Grid>
-        <Frame x:Name="CharacterWhiteValueFrame"/>
+        <ScrollViewer>
+            <WrapPanel Orientation="Vertical">
+                <Frame x:Name="CharacterWhiteValueFrame"/>
+                <Frame x:Name="WeaponWhiteValueFrame"/>
+            </WrapPanel>
+        </ScrollViewer>
+
     </Grid>
 </Window>
