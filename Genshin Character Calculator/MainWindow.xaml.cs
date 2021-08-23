@@ -20,9 +20,10 @@ namespace Genshin_Character_Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-         #region Frame declaration
-        StorageFrame characterWhiteValue = new StorageFrame(new CharacterWhiteValue(), "角色");
-        StorageFrame weaponWhiteValue = new StorageFrame(new WeaponWhiteValue(), "武器");
+        #region Frame declaration
+        private readonly StorageFrame characterWhiteValue = new StorageFrame(new CharacterWhiteValue(), "角色");
+        private readonly StorageFrame weaponWhiteValue = new StorageFrame(new WeaponWhiteValue(), "武器");
+        private readonly StorageFrame allRelic = new StorageFrame(new AllRelic(), "聖遺物");
         #endregion
 
         public MainWindow()
@@ -30,6 +31,7 @@ namespace Genshin_Character_Calculator
             InitializeComponent();
             CharacterWhiteValueFrame.Content = characterWhiteValue;
             WeaponWhiteValueFrame.Content = weaponWhiteValue;
+            AllRelicFrame.Content = allRelic;
         }
     }
 }
