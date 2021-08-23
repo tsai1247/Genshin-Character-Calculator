@@ -20,12 +20,12 @@ namespace Genshin_Character_Calculator
     {
         private bool isFold;
 
-        public StorageFrame(object content, string titleText)
+        public StorageFrame(object content, string titleText, bool isFold=false)
         {
             InitializeComponent();
             curFrame.Content = content;
 
-            isFold = false;
+            this.isFold = isFold;
             setFold();
 
             title.Content = titleText;
