@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Genshin_Character_Calculator.CharacterWhiteValue"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Genshin_Character_Calculator"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Background="LightPink">
+        <WrapPanel Orientation="Vertical">
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="角色名稱：" Style="{StaticResource Label_Title}"/>
+                <TextBox Text="優菈" Style="{StaticResource TextBox_Input}"/>
+                <Label Content="等級：" Style="{StaticResource Label_Title}"/>
+                <TextBox Text="90" Style="{StaticResource TextBox_Input}"/>
+
+            </WrapPanel>
+
+            <WrapPanel Orientation="Horizontal">
+                <Label Content="生命上限：" Style="{StaticResource Label_Title}"/>
+                <TextBox Text="20010" Style="{StaticResource TextBox_Input}"/>
+                <Label Content="攻擊力：" Style="{StaticResource Label_Title}"/>
+                <TextBox Text="567" Style="{StaticResource TextBox_Input}"/>
+                <Label Content="防禦力：" Style="{StaticResource Label_Title}"/>
+                <TextBox Text="382" Style="{StaticResource TextBox_Input}"/>
+
+            </WrapPanel>
+
+        </WrapPanel>
+    </Grid>
+</UserControl>
