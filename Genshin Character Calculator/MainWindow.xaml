@@ -21,6 +21,9 @@
                 <Frame x:Name="CharacterWhiteValueFrame"/>
                 <Frame x:Name="WeaponWhiteValueFrame"/>
                 <Frame x:Name="AllRelicFrame"/>
+                <Button Content="計算" Style="{StaticResource Button_Normal}"
+                    Click="Button_Click"/>
+                <Frame x:Name="ResultFrame"/>
             </WrapPanel>
         </ScrollViewer>
 
